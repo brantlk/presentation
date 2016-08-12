@@ -1,0 +1,119 @@
+
+I was asked to give this presentation on gerrit etiquette based feedback during our retrospective. We thought it would help improve our velocity if our developers had some education on more advanced use of gerrit.
+
+As the title indicates, this isn't going to be a gerrit tutorial. If that's what you're looking for, there's plenty of documentation you can read.
+
+This is a distillation of knowledge gained over a few years of doing code reviews in the OpenStack community.
+
+The link here goes to a tool that shows the review statistics. I've done over 4000 reviews in keystone over the years. All of the lessons in this document are mistakes that I've made in the past and things that you'd pick up if you worked on this for a few months and watched others.
+
+On that page you'll show that the ratio of + to - is a low 55%. You'd think this would make me unpopular, but submitters and other cores appreciate that the reviews I do are thorough and fair. The information in the rest of this presentation will help you to gain the same reputation.
+
+----
+
+In this presentation I'll cover a few topics
+ - reviewing
+ - submitting a change
+ - gerrit tips
+
+Reviewing is first because it's what you should be spending most of your time on. When I was new to OpenStack development I didn't know python. I had used it a little bit but I could tell by looking at some proposed changes I had a lot to learn. When I didn't understand something I looked up the documentation. If you're not familiar with the programming language, doing reviews is the best way to learn the code. You'll learn the libraries. You'll learn from the submitters and other reviewers.
+
+----
+
+A few topics on reviewing.
+
+The most important -- understand every line. Read it and understand it. If you can't, there's probably a bug there. If you can't, the next person reviewing can't either. Code doesn't have to be inscrutable or clever. Don't be embarrassed to leave a review comment that you can't understand it and this needs be clarified. It's easy to add a comment. At the same time, spend the time to look up documentation.
+
+'Be explicit' -- If you can say exactly what will make you happy then put that in the comment. Code is explicit. Try out your suggestion to make sure it works. This can avoid back-and-forth that takes time.
+
+These next 3 go together:
+
+Usually when you look at some code you'll think "what if it also did this" or "what if this was a configuration option". You're better off not even mentioning these since the submitter might decide to do it and then you have to review again.
+
+The best way to handle this -- propose a new review with the extra feature. This is how it's supposed to work.
+
+If you think there's a "better" way to do something but the proposed way works, probably best to leave it be. As I said before, if you suggest something try it out first. You might find out it's not as great as you though. Go ahead and comment but make sure to say this is a suggestion. The submitter might agree with you. Spend your time looking for actual bugs.
+
+If you see a typo in a comment, might as well leave the comment, but if all you have is a nit then don't -1 for it. Whoever does the workflow+1 can clean these up if they feel like it.
+
+----
+
+You can and should comment on the overall change. A +1 review on a change isn't that helpful to other reviewers. A +1 review saying that you tried it out and it worked as expected is actually useful information.
+
+Reviewing takes a lot of time. Don't take on so many reviews that you don't have time to follow up on your review comments when there's a new patch set. If you had a lot of good comments on a change and -1d then other reviewers want to see your +1.
+
+The last one is a pro tip -- the coverage report will show lines that aren't covered by the unit tests and therefore likely have bugs.
+
+----
+
+This slide shows how the overall scoring works in gerrit. For some reason our internal gerrit gives everyone core authority. This typically takes at least months in the OpenStack community. There's no real formal education or testing so reviewers learn what to do by watching and the rest of the core team learns if they've got the temperament by watching their reviews and engagement with the community and project.
+
+-2 is for if this is going to break backwards compatibility or a supported feature.
+
+----
+
+Now a few slides for submitters.
+
+Reviewers and submitters have a different perspective. For the submitter, whatever reference material they looked at is fresh in their minds. The order that they worked on the files is likely different than the order that gerrit shows them so the reviewer is maybe looking at the middle of the change rather than the end.
+
+You're not going to get your change in without reviewers agreeing to it. So prepare the change with the reviewer in mind.
+
+Tip: After pushing up a change for review, open it up and look at it in gerrit and look through it from the perspective of a reviewer.
+
+Another tip: you don't have to keep work that's in progress on your local computer. Push it up and put WIP in the title or set workflow -1.
+
+----
+
+A good commit message can put the reviewer in the right frame of mind.
+
+There's upstream documentation that all developers should review.
+
+Split up changes, format for references
+
+----
+
+Here's how I like to write up commit messages.
+
+title and blank line are required.
+
+Then explain why the old behavior was incorrect. What was it doing that was wrong?
+
+Then explain why the new behavior is correct. What is it doing now that's correct?
+
+It might be useful to put in a summary, but it can also be difficult to maintain as the code changes due to review comments.
+
+Put in references to bugs, blueprints.
+
+Our issues are not available externally so don't put references to those.
+
+----
+
+You'll get comments on your changes. Make sure to reply to all of them. Your changes will not merge if you don't respond to reviewers so unless the comment introduces a bug you're best off doing it.
+
+Talk to the reviewer on irc or slack if you can get a hold of them and have questions to avoid lots of review back and forth.
+
+Remember to push the button to publish draft responses. Gerrit makes it harder to see draft comments.
+
+----
+
+Here's a few tips that I've picked up on using gerrit to organize my review flow.
+
+Subscribe to projects (demo). So you get emails.
+
+Add yourself as reviewer. It shows up in your "My Reviews" dashboard.
+
+Add others as reviewers. I prefer it if people don't do this for projects I'm a core on since I'm already watching those. But for other projects it gets my attention.
+
+You don't have control over whether you've been added to a review, so this isn't a great way to control your work. You do have control over whether you've starred a review. I typically star a review when I score it and these are the reviews I'm currently working on.
+
+Learn querying. is:starred is:watched
+
+----
+
+A lot of people proposing changes to openstack projects wonder why their code isn't being merged.
+
+First, there aren't that many core reviewers and we all have day jobs. You can see how many open reviews there are in gerrit.
+
+Before complaining about people not doing reviews, look at yourself. How many reviews are you doing?
+
+Requests for reviews in irc are generally ignored. If you do ask, give a reason why this is more important than every other submission out there.
