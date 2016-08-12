@@ -1,11 +1,12 @@
+https://ibm.biz/Bdredn
 
-I was asked to give this presentation on gerrit etiquette based on feedback during our last retrospective. We thought it would help improve our velocity if our developers had some education on more advanced use of gerrit.
+I was asked to give this presentation on gerrit etiquette based on feedback during our last retrospective. We thought it would help improve our velocity if our developers had some education on more nuanced use of gerrit.
 
 As the title indicates, this isn't going to be a gerrit tutorial. If that's what you're looking for, there's plenty of documentation you can read.
 
-The link here goes to a tool that shows the review statistics. I've done over 4000 reviews in keystone since Grizzly. All of the lessons in this document are mistakes that I've made in the past and things that you'd pick up if you worked on this for a few months of doing and watching others.
+The link here goes to a tool that shows openstack review statistics. I've done over 4000 reviews in keystone since Grizzly. All of the lessons in this document are mistakes that I've made in the past and things that you'd pick up if you worked on this for a few months of doing and watching others.
 
-On that page you'll show that the ratio of + to - is a low 55%. You'd think this would make me unpopular, but submitters and other cores appreciate that the reviews I do are thorough and fair. This is what the community looks for in reviewers.
+On that page you'll see that the ratio of + to - is 55%, which is low compared to others. You'd think this would make me unpopular, but submitters and other cores appreciate that the reviews I do are thorough and fair. This is what the community looks for in reviewers.
 
 ----
 
@@ -14,7 +15,7 @@ In this presentation I'll cover a few topics
  - submitting a change
  - gerrit tips
 
-I cover reviewing first because it's what you should be spending most of your time on. When I was new to OpenStack development I didn't know python. I had used it in small projects but I could tell by looking at some proposed changes that I had a lot to learn. When I didn't understand something I looked up the documentation. If you're not familiar with the programming language, doing reviews is the best way to learn the code. You'll learn the libraries. You'll learn from the submitters and other reviewers.
+I cover reviewing first because it's what you should be spending most of your time on if you're working upstream and it's required if you want to become a core reviewer. When I was new to OpenStack development I didn't know python. I had used it in small projects but I could tell by looking at some proposed changes that I had a lot to learn. When I didn't understand something I looked up the documentation, which happened a lot. If you're not familiar with the programming language, doing reviews is the best way to learn from experts. You'll learn the libraries. You'll learn both from the submitters and comments posted by other reviewers.
 
 ----
 
@@ -40,7 +41,7 @@ If you see a typo in a comment, might as well leave the comment, but if all you 
 
 ----
 
-You can and should comment on the overall change. A +1 review on a change isn't that helpful to other reviewers. A +1 review saying that you tried it out and it worked as expected is actually useful information.
+You can and should comment on the overall change. A +1 or +2 on a change isn't that helpful to other reviewers unless you've left a -1 review before. A +1 review saying that you tried it out and it worked as expected is actually useful information.
 
 Reviewing takes a lot of time. Don't take on so many reviews that you don't have time to follow up on your review comments when there's a new patch set. If you had a lot of good comments on a change and -1d then other reviewers want to see your +1.
 
