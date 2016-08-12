@@ -1,13 +1,11 @@
 
-I was asked to give this presentation on gerrit etiquette based feedback during our retrospective. We thought it would help improve our velocity if our developers had some education on more advanced use of gerrit.
+I was asked to give this presentation on gerrit etiquette based on feedback during our last retrospective. We thought it would help improve our velocity if our developers had some education on more advanced use of gerrit.
 
 As the title indicates, this isn't going to be a gerrit tutorial. If that's what you're looking for, there's plenty of documentation you can read.
 
-This is a distillation of knowledge gained over a few years of doing code reviews in the OpenStack community.
+The link here goes to a tool that shows the review statistics. I've done over 4000 reviews in keystone since Grizzly. All of the lessons in this document are mistakes that I've made in the past and things that you'd pick up if you worked on this for a few months of doing and watching others.
 
-The link here goes to a tool that shows the review statistics. I've done over 4000 reviews in keystone over the years. All of the lessons in this document are mistakes that I've made in the past and things that you'd pick up if you worked on this for a few months and watched others.
-
-On that page you'll show that the ratio of + to - is a low 55%. You'd think this would make me unpopular, but submitters and other cores appreciate that the reviews I do are thorough and fair. The information in the rest of this presentation will help you to gain the same reputation.
+On that page you'll show that the ratio of + to - is a low 55%. You'd think this would make me unpopular, but submitters and other cores appreciate that the reviews I do are thorough and fair. This is what the community looks for in reviewers.
 
 ----
 
@@ -16,19 +14,23 @@ In this presentation I'll cover a few topics
  - submitting a change
  - gerrit tips
 
-Reviewing is first because it's what you should be spending most of your time on. When I was new to OpenStack development I didn't know python. I had used it a little bit but I could tell by looking at some proposed changes I had a lot to learn. When I didn't understand something I looked up the documentation. If you're not familiar with the programming language, doing reviews is the best way to learn the code. You'll learn the libraries. You'll learn from the submitters and other reviewers.
+I cover reviewing first because it's what you should be spending most of your time on. When I was new to OpenStack development I didn't know python. I had used it in small projects but I could tell by looking at some proposed changes that I had a lot to learn. When I didn't understand something I looked up the documentation. If you're not familiar with the programming language, doing reviews is the best way to learn the code. You'll learn the libraries. You'll learn from the submitters and other reviewers.
 
 ----
 
 A few topics on reviewing.
 
-The most important -- understand every line. Read it and understand it. If you can't, there's probably a bug there. If you can't, the next person reviewing can't either. Code doesn't have to be inscrutable or clever. Don't be embarrassed to leave a review comment that you can't understand it and this needs be clarified. It's easy to add a comment. At the same time, spend the time to look up documentation.
+The most important tip -- understand every line. Read it and understand it. Don't give complicated code a pass. There's probably a bug there. Code doesn't have to be inscrutable or clever. The next person reviewing this will thank you since they won't have to work as hard. The person 6 months from now trying to figure out a bug will thank you. Don't be embarrassed to leave a review comment that you can't understand something and this needs be clarified.
 
-'Be explicit' -- If you can say exactly what will make you happy then put that in the comment. Code is explicit. Try out your suggestion to make sure it works. This can avoid back-and-forth that takes time.
+At the same time, look up documentation on things you don't understand first.
+
+'Be explicit' -- Say exactly what will make you happy. Code is explicit. Try out your suggestion to make sure it works. This can avoid back-and-forth that takes time.
+
+If there's something wrong with the code, provide a link to the documentation. Maybe it's a style issue, provide a link to an official style guide (pep8, or project docs). Maybe it's library usage, link to the docs for the method. You learned something by reading the docs, the submitter will learn too.
 
 These next 3 go together:
 
-Usually when you look at some code you'll think "what if it also did this" or "what if this was a configuration option". You're better off not even mentioning these since the submitter might decide to do it and then you have to review again.
+A lot of times when you look at some code you'll think "what if it also did this" or "what if this was a configuration option". Commits should be kept small to make reviewing easier and limit the introduction of bugs. You're better off not even mentioning these since the submitter might decide to do it and then you have to review again.
 
 The best way to handle this -- propose a new review with the extra feature. This is how it's supposed to work.
 
